@@ -1,0 +1,3865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#080808">
+<title>04:04 Cloud Kitchen | Moodbidri</title>
+<meta name="description" content="04:04 Cloud Kitchen, Moodbidri. Open daily 4 PM – 4 AM. Order burgers, wraps, momos, fries, starters, rice, noodles, braosted chicken and mojitos.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#080808;
+  --bg2:#0d0d0d;
+  --panel:#111;
+  --card:#171717;
+  --card2:#1e1e1e;
+
+  --gold:#E4D004;
+  --gold-soft:rgba(228,208,4,.12);
+  --gold-line:rgba(228,208,4,.32);
+
+  --text:#fff;
+  --muted:#a8a8a8;
+  --line:#2a2a2a;
+
+  --display:'Anton',Impact,'Arial Narrow',sans-serif;
+  --body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:82px;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--body);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(
+      700px 500px at 85% 10%,
+      rgba(228,208,4,.055),
+      transparent 70%
+    ),
+    radial-gradient(
+      700px 500px at 5% 80%,
+      rgba(228,208,4,.035),
+      transparent 70%
+    );
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,
+input,
+textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+h1,
+h2,
+h3,
+h4{
+  font-family:var(--display);
+  font-weight:400;
+  line-height:1.05;
+  margin:0;
+  text-transform:uppercase;
+}
+
+.container{
+  width:min(1150px,calc(100% - 40px));
+  margin:auto;
+}
+
+.gold{
+  color:var(--gold);
+}
+
+/* BUTTONS */
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+
+  min-height:48px;
+  padding:0 24px;
+
+  border-radius:999px;
+  border:1px solid transparent;
+
+  font-size:.78rem;
+  font-weight:800;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+.btn-primary{
+  background:
+    linear-gradient(
+      135deg,
+      #f8eb54,
+      var(--gold)
+    );
+
+  color:#111;
+
+  box-shadow:
+    0 12px 35px
+    rgba(228,208,4,.18);
+}
+
+.btn-outline{
+  background:transparent;
+  color:var(--gold);
+  border-color:var(--gold);
+}
+
+.btn-outline:hover{
+  background:var(--gold-soft);
+}
+
+
+/* HEADER */
+
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+
+  z-index:100;
+
+  background:
+    rgba(8,8,8,.78);
+
+  backdrop-filter:blur(17px);
+  -webkit-backdrop-filter:blur(17px);
+
+  border-bottom:
+    1px solid
+    rgba(255,255,255,.07);
+}
+
+.nav{
+  height:72px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:14px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+
+  gap:10px;
+  min-width:0;
+}
+
+.brand-logo{
+  width:55px;
+  height:55px;
+
+  display:block;
+  flex:none;
+}
+
+.logo-copy{
+  display:flex;
+  flex-direction:column;
+
+  gap:4px;
+  white-space:nowrap;
+}
+
+.logo-copy strong{
+  font:
+    400 1.18rem var(--display);
+
+  color:var(--gold);
+
+  letter-spacing:.04em;
+}
+
+.logo-copy small{
+  font-size:.43rem;
+  font-weight:700;
+
+  letter-spacing:.15em;
+
+  color:var(--muted);
+}
+
+.nav-links{
+  display:none;
+
+  gap:25px;
+
+  color:var(--muted);
+
+  font-weight:600;
+  font-size:.88rem;
+}
+
+.nav-links a:hover{
+  color:var(--gold);
+}
+
+.actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.cart-button{
+  width:44px;
+  height:44px;
+
+  border-radius:13px;
+
+  border:1px solid var(--line);
+
+  background:var(--card);
+
+  color:#fff;
+
+  position:relative;
+
+  font-size:1.05rem;
+}
+
+.count{
+  position:absolute;
+
+  top:-6px;
+  right:-6px;
+
+  min-width:20px;
+  height:20px;
+
+  border-radius:20px;
+
+  background:var(--gold);
+  color:#111;
+
+  display:grid;
+  place-items:center;
+
+  font-size:.67rem;
+  font-weight:800;
+}
+
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+
+  padding:
+    150px 0 85px;
+
+  display:grid;
+  align-items:center;
+
+  background:
+    radial-gradient(
+      850px 600px at 78% 45%,
+      rgba(228,208,4,.11),
+      transparent 70%
+    );
+}
+
+.hero-grid{
+  display:grid;
+
+  gap:40px;
+
+  align-items:center;
+}
+
+.badge{
+  display:inline-flex;
+
+  padding:7px 14px;
+
+  border:
+    1px solid
+    var(--gold-line);
+
+  border-radius:999px;
+
+  color:var(--gold);
+
+  font-size:.71rem;
+  font-weight:800;
+
+  letter-spacing:.13em;
+}
+
+.hero h1{
+  font-size:
+    clamp(
+      3.1rem,
+      10vw,
+      6.6rem
+    );
+
+  margin-top:18px;
+}
+
+.hero h1 span{
+  color:var(--gold);
+}
+
+.meta{
+  margin-top:19px;
+
+  color:var(--gold);
+
+  font-size:.81rem;
+
+  font-weight:800;
+
+  letter-spacing:.12em;
+}
+
+.hero p{
+  max-width:610px;
+
+  color:var(--muted);
+
+  margin:19px 0 0;
+
+  font-size:1rem;
+}
+
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+
+  gap:12px;
+
+  margin-top:28px;
+}
+
+
+/* HERO LOGO */
+
+.orb{
+  width:min(100%,460px);
+
+  aspect-ratio:1;
+
+  display:grid;
+  place-items:center;
+
+  margin:auto;
+
+  animation:
+    float 5s ease-in-out infinite;
+}
+
+.orb-logo{
+  width:82%;
+  height:82%;
+
+  display:block;
+
+  filter:
+    drop-shadow(
+      0 16px 28px
+      rgba(0,0,0,.45)
+    )
+    drop-shadow(
+      0 0 24px
+      rgba(228,208,4,.16)
+    );
+
+  transition:
+    transform .3s ease,
+    filter .3s ease;
+}
+
+.orb:hover .orb-logo{
+  transform:scale(1.04);
+
+  filter:
+    drop-shadow(
+      0 22px 40px
+      rgba(228,208,4,.15)
+    );
+}
+
+@keyframes float{
+
+  50%{
+    transform:
+      translateY(-10px);
+  }
+
+}
+
+
+/* SECTIONS */
+
+section{
+  padding:82px 0;
+}
+
+.section-alt{
+  background:
+    linear-gradient(
+      180deg,
+      #0c0c0c,
+      #101010
+    );
+}
+
+.section-head{
+  margin-bottom:28px;
+}
+
+.section-head h2{
+  font-size:
+    clamp(
+      2.1rem,
+      6vw,
+      3.5rem
+    );
+}
+
+.section-head p{
+  margin:9px 0 0;
+  color:var(--muted);
+}
+
+
+/* MENU */
+
+.menu-tools{
+  position:sticky;
+
+  top:72px;
+
+  z-index:60;
+
+  padding:13px 0;
+
+  background:
+    rgba(8,8,8,.91);
+
+  backdrop-filter:blur(12px);
+}
+
+.search{
+  width:100%;
+  height:48px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:14px;
+
+  background:var(--card);
+
+  color:#fff;
+
+  padding:0 15px;
+
+  outline:0;
+
+  margin-bottom:12px;
+}
+
+.search:focus{
+  border-color:var(--gold-line);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(228,208,4,.07);
+}
+
+.tabs{
+  display:flex;
+
+  gap:8px;
+
+  overflow-x:auto;
+
+  scrollbar-width:none;
+
+  padding-bottom:2px;
+}
+
+.tabs::-webkit-scrollbar{
+  display:none;
+}
+
+.tab{
+  flex:none;
+
+  height:39px;
+
+  padding:0 16px;
+
+  border-radius:999px;
+
+  border:
+    1px solid
+    var(--line);
+
+  background:var(--card);
+
+  color:var(--muted);
+
+  font-size:.74rem;
+  font-weight:800;
+
+  letter-spacing:.05em;
+
+  text-transform:uppercase;
+}
+
+.tab.active{
+  background:var(--gold);
+
+  border-color:var(--gold);
+
+  color:#111;
+}
+
+.menu-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fill,
+      minmax(250px,1fr)
+    );
+
+  gap:16px;
+}
+
+.menu-card{
+  background:
+    linear-gradient(
+      160deg,
+      var(--card2),
+      var(--card)
+    );
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:20px;
+
+  padding:19px;
+
+  min-height:178px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+
+  transition:.22s;
+}
+
+.menu-card:hover{
+  transform:
+    translateY(-4px);
+
+  border-color:
+    var(--gold-line);
+
+  box-shadow:
+    0 18px 42px
+    rgba(0,0,0,.4);
+}
+
+.menu-cat{
+  color:var(--gold);
+
+  font-size:.68rem;
+  font-weight:800;
+
+  letter-spacing:.11em;
+
+  text-transform:uppercase;
+}
+
+.menu-card h3{
+  font-size:1.19rem;
+
+  margin-top:6px;
+}
+
+.desc{
+  color:var(--muted);
+
+  font-size:.82rem;
+
+  margin:
+    6px 0 14px;
+}
+
+.price-row{
+  display:flex;
+
+  align-items:center;
+  justify-content:space-between;
+
+  gap:10px;
+}
+
+.price{
+  color:var(--gold);
+
+  font-weight:800;
+
+  font-size:1.07rem;
+}
+
+.add{
+  height:40px;
+
+  padding:0 17px;
+
+  border:0;
+
+  border-radius:999px;
+
+  background:var(--gold);
+
+  color:#111;
+
+  font-size:.73rem;
+
+  font-weight:800;
+}
+
+.add:hover{
+  transform:scale(1.05);
+}
+
+.qty{
+  display:inline-flex;
+
+  align-items:center;
+
+  border:
+    1px solid
+    var(--gold-line);
+
+  border-radius:999px;
+
+  background:#0d0d0d;
+
+  overflow:hidden;
+}
+
+.qty button{
+  width:34px;
+  height:34px;
+
+  border:0;
+
+  background:transparent;
+
+  color:var(--gold);
+
+  font-size:1.15rem;
+
+  font-weight:800;
+}
+
+.qty span{
+  min-width:25px;
+
+  text-align:center;
+
+  font-size:.82rem;
+
+  font-weight:800;
+}
+
+
+/* ABOUT */
+
+.info-grid{
+  display:grid;
+  gap:22px;
+}
+
+.info-card{
+  background:
+    linear-gradient(
+      145deg,
+      #151515,
+      #0f0f0f
+    );
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:24px;
+
+  padding:28px;
+}
+
+.info-card p{
+  color:var(--muted);
+
+  margin:
+    10px 0 0;
+}
+
+.chips{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:9px;
+
+  margin-top:18px;
+}
+
+.chip{
+  padding:8px 13px;
+
+  border:
+    1px solid
+    var(--line);
+
+  background:#121212;
+
+  border-radius:999px;
+
+  color:#ddd;
+
+  font-size:.78rem;
+}
+
+
+/* DELIVERY */
+
+.delivery{
+  background:
+    radial-gradient(
+      500px 270px at 50% 20%,
+      rgba(228,208,4,.1),
+      transparent 70%
+    ),
+    linear-gradient(
+      160deg,
+      #141414,
+      #0b0b0b
+    );
+
+  border:
+    1px solid
+    var(--gold-line);
+
+  border-radius:28px;
+
+  padding:58px 22px;
+
+  text-align:center;
+
+  box-shadow:
+    0 28px 65px
+    rgba(0,0,0,.35);
+}
+
+.delivery h2{
+  font-size:
+    clamp(
+      2.3rem,
+      7vw,
+      4rem
+    );
+}
+
+.delivery p{
+  max-width:650px;
+
+  margin:
+    13px auto;
+
+  color:var(--muted);
+}
+
+.rule{
+  display:inline-flex;
+
+  flex-wrap:wrap;
+
+  justify-content:center;
+
+  gap:8px;
+
+  margin:20px auto;
+
+  padding:10px 15px;
+
+  background:#101010;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:999px;
+
+  color:#ddd;
+
+  font-size:.82rem;
+}
+
+.rule strong{
+  color:var(--gold);
+}
+
+.phone-label{
+  margin-top:21px;
+
+  color:var(--gold);
+
+  font-size:.71rem;
+
+  font-weight:800;
+
+  letter-spacing:.18em;
+}
+
+.phone{
+  display:block;
+
+  margin:
+    3px 0 22px;
+
+  font:
+    400
+    clamp(
+      2rem,
+      7vw,
+      3rem
+    )
+    var(--display);
+}
+
+
+/* CONTACT */
+
+.contact-grid{
+  display:grid;
+
+  gap:20px;
+}
+
+.contact-card{
+  background:var(--card);
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:22px;
+
+  padding:24px;
+}
+
+.contact-card strong{
+  color:var(--gold);
+}
+
+.contact-card p{
+  color:var(--muted);
+}
+
+
+/* FOOTER */
+
+footer{
+  background:#050505;
+
+  border-top:
+    1px solid
+    var(--line);
+
+  padding:
+    52px 0 95px;
+
+  color:var(--muted);
+}
+
+.footer-grid{
+  display:grid;
+
+  gap:27px;
+}
+
+footer h4{
+  color:#fff;
+
+  font-size:1.35rem;
+
+  margin-bottom:10px;
+}
+
+footer a:hover{
+  color:var(--gold);
+}
+
+.socials{
+  display:flex;
+
+  gap:10px;
+}
+
+.social{
+  width:43px;
+  height:43px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:50%;
+
+  display:grid;
+  place-items:center;
+
+  background:#0e0e0e;
+
+  font-size:.72rem;
+
+  font-weight:800;
+}
+
+.social:hover{
+  background:var(--gold);
+  color:#111;
+}
+
+
+/* MOBILE CART BAR */
+
+.cartbar{
+  position:fixed;
+
+  left:12px;
+  right:12px;
+  bottom:12px;
+
+  z-index:80;
+
+  display:none;
+
+  align-items:center;
+  justify-content:space-between;
+
+  padding:
+    13px 17px;
+
+  background:var(--gold);
+
+  color:#111;
+
+  border-radius:17px;
+
+  font-weight:800;
+
+  box-shadow:
+    0 14px 40px
+    rgba(0,0,0,.5);
+}
+
+.cartbar.show{
+  display:flex;
+}
+
+
+/* CART OVERLAY */
+
+.overlay{
+  position:fixed;
+
+  inset:0;
+
+  z-index:120;
+
+  background:
+    rgba(0,0,0,.72);
+
+  opacity:0;
+
+  visibility:hidden;
+
+  transition:.25s;
+}
+
+.overlay.show{
+  opacity:1;
+  visibility:visible;
+}
+
+
+/* CART DRAWER */
+
+.drawer{
+  position:fixed;
+
+  top:0;
+  right:0;
+  bottom:0;
+
+  z-index:130;
+
+  width:
+    min(
+      450px,
+      100%
+    );
+
+  background:#101010;
+
+  border-left:
+    1px solid
+    var(--line);
+
+  transform:
+    translateX(100%);
+
+  transition:.3s;
+
+  display:flex;
+
+  flex-direction:column;
+
+  padding-top:
+    env(
+      safe-area-inset-top,
+      0px
+    );
+}
+
+.drawer.show{
+  transform:none;
+}
+
+.drawer-head{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  padding:18px 20px;
+
+  border-bottom:
+    1px solid
+    var(--line);
+}
+
+.drawer-head h3{
+  font-size:1.6rem;
+}
+
+.close{
+  width:40px;
+  height:40px;
+
+  border:0;
+
+  border-radius:12px;
+
+  background:var(--card);
+
+  color:#fff;
+}
+
+.drawer-body{
+  flex:1;
+
+  overflow:auto;
+
+  padding:
+    15px 20px;
+}
+
+.cart-item{
+  display:flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  padding:
+    13px 0;
+
+  border-bottom:
+    1px solid
+    var(--line);
+}
+
+.item-info{
+  flex:1;
+}
+
+.item-info strong{
+  display:block;
+}
+
+.item-info small{
+  color:var(--muted);
+}
+
+.line-total{
+  font-weight:800;
+}
+
+
+/* FORM */
+
+.form label{
+  display:block;
+
+  color:var(--muted);
+
+  font-size:.77rem;
+
+  font-weight:700;
+
+  margin:
+    12px 0 5px;
+}
+
+.field,
+.form textarea{
+  width:100%;
+
+  padding:
+    11px 12px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:12px;
+
+  background:var(--card);
+
+  color:#fff;
+
+  outline:0;
+}
+
+.field:focus,
+.form textarea:focus{
+  border-color:
+    var(--gold-line);
+}
+
+.distance-box{
+  margin-top:12px;
+
+  padding:13px;
+
+  border-radius:13px;
+
+  background:#0e0e0e;
+
+  border:
+    1px solid
+    var(--line);
+
+  font-size:.82rem;
+}
+
+.charge{
+  color:var(--gold);
+
+  font-weight:800;
+}
+
+.location-btn{
+  margin-top:9px;
+
+  width:100%;
+}
+
+.error{
+  min-height:18px;
+
+  color:#ff7676;
+
+  font-size:.77rem;
+
+  margin-top:7px;
+}
+
+.hidden{
+  display:none!important;
+}
+
+
+/* DRAWER FOOTER */
+
+.drawer-footer{
+  border-top:
+    1px solid
+    var(--line);
+
+  background:var(--card);
+
+  padding:
+    16px 20px;
+}
+
+.summary{
+  display:flex;
+
+  justify-content:space-between;
+
+  color:var(--muted);
+
+  padding:
+    2px 0;
+}
+
+.summary.total{
+  color:#fff;
+
+  font-size:1.12rem;
+
+  font-weight:800;
+
+  margin-top:7px;
+}
+
+.summary.total span:last-child{
+  color:var(--gold);
+}
+
+
+/* LOADER */
+
+.loader{
+  position:fixed;
+
+  inset:0;
+
+  z-index:300;
+
+  background:#080808;
+
+  display:grid;
+
+  place-items:center;
+
+  transition:.5s;
+}
+
+.loader.hide{
+  opacity:0;
+
+  visibility:hidden;
+}
+
+.loader svg{
+  width:112px;
+  height:112px;
+
+  animation:
+    pulse 1s ease-in-out
+    infinite alternate;
+}
+
+@keyframes pulse{
+
+  from{
+    transform:scale(.94);
+    opacity:.65;
+  }
+
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+
+}
+
+
+/* DESKTOP */
+
+@media(min-width:760px){
+
+  .nav-links{
+    display:flex;
+  }
+
+  .hero-grid{
+    grid-template-columns:
+      1.05fr .95fr;
+  }
+
+  .info-grid{
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .contact-grid{
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:
+      1.35fr 1fr 1fr;
+  }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:759px){
+
+  .nav{
+    height:68px;
+  }
+
+  .actions .btn{
+    display:none;
+  }
+
+  .brand-logo{
+    width:46px;
+    height:46px;
+  }
+
+  .logo-copy strong{
+    font-size:1.05rem;
+  }
+
+  .logo-copy small{
+    font-size:.39rem;
+    letter-spacing:.12em;
+  }
+
+  .menu-tools{
+    top:68px;
+  }
+
+  .hero{
+    padding-top:120px;
+  }
+
+  .hero-actions .btn{
+    flex:1;
+
+    min-width:145px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- EMBEDDED LOGO -->
+
+<svg
+  aria-hidden="true"
+  width="0"
+  height="0"
+  style="position:absolute"
+>
+
+<symbol
+  id="brandLogo"
+  viewBox="0 0 400 400"
+>
+
+<rect
+  width="400"
+  height="400"
+  fill="#E4D004"
+/>
+
+
+<!-- CLOUD -->
+
+<path
+  d="M130 138C100 138 98 96 128 94C128 66 168 56 188 76C204 54 250 62 254 92C284 96 282 138 258 138C256 152 250 160 240 162L160 162C150 160 132 152 130 138Z"
+  fill="#080808"
+/>
+
+
+<!-- FORK -->
+
+<g
+  transform="translate(132 196) rotate(-32)"
+  fill="#080808"
+>
+
+<rect
+  x="-17"
+  y="-28"
+  width="34"
+  height="46"
+  rx="6"
+/>
+
+<rect
+  x="-9"
+  y="-18"
+  width="18"
+  height="6"
+  rx="3"
+  fill="#E4D004"
+/>
+
+<rect
+  x="-9"
+  y="-6"
+  width="18"
+  height="6"
+  rx="3"
+  fill="#E4D004"
+/>
+
+<rect
+  x="-9"
+  y="6"
+  width="18"
+  height="6"
+  rx="3"
+  fill="#E4D004"
+/>
+
+<rect
+  x="-3"
+  y="16"
+  width="6"
+  height="26"
+/>
+
+<rect
+  x="-4.5"
+  y="40"
+  width="9"
+  height="50"
+  rx="4.5"
+/>
+
+</g>
+
+
+<!-- KNIFE -->
+
+<g
+  transform="translate(268 196) rotate(32)"
+  fill="#080808"
+>
+
+<rect
+  x="-17"
+  y="-28"
+  width="34"
+  height="46"
+  rx="6"
+/>
+
+<rect
+  x="-9"
+  y="-18"
+  width="18"
+  height="6"
+  rx="3"
+  fill="#E4D004"
+/>
+
+<rect
+  x="-9"
+  y="-6"
+  width="18"
+  height="6"
+  rx="3"
+  fill="#E4D004"
+/>
+
+<rect
+  x="-9"
+  y="6"
+  width="18"
+  height="6"
+  rx="3"
+  fill="#E4D004"
+/>
+
+<rect
+  x="-3"
+  y="16"
+  width="6"
+  height="26"
+/>
+
+<rect
+  x="-4.5"
+  y="40"
+  width="9"
+  height="50"
+  rx="4.5"
+/>
+
+</g>
+
+
+<!-- 04:04 -->
+
+<text
+  x="200"
+  y="338"
+  text-anchor="middle"
+  font-family="Arial, sans-serif"
+  font-size="75"
+  font-weight="900"
+  fill="#080808"
+>
+04:04
+</text>
+
+
+<!-- CLOUD KITCHEN -->
+
+<rect
+  x="52"
+  y="348"
+  width="296"
+  height="39"
+  rx="4"
+  fill="#E4D004"
+/>
+
+<text
+  x="200"
+  y="375"
+  text-anchor="middle"
+  font-family="Arial, Helvetica, sans-serif"
+  font-size="22"
+  font-weight="900"
+  letter-spacing="2.6"
+  fill="#080808"
+>
+CLOUD KITCHEN
+</text>
+
+</symbol>
+</svg>
+
+
+<!-- LOADER -->
+
+<div
+  class="loader"
+  id="loader"
+>
+
+<svg
+  viewBox="0 0 400 400"
+  aria-label="04:04 Cloud Kitchen"
+>
+
+<use href="#brandLogo"></use>
+
+</svg>
+
+</div>
+
+
+<!-- HEADER -->
+
+<header>
+
+<div class="container nav">
+
+<a
+  class="logo"
+  href="#home"
+  aria-label="04:04 Cloud Kitchen"
+>
+
+<svg
+  class="brand-logo"
+  viewBox="0 0 400 400"
+>
+
+<use href="#brandLogo"></use>
+
+</svg>
+
+
+<span class="logo-copy">
+
+<strong>
+04:04
+</strong>
+
+<small>
+CLOUD KITCHEN · MOODBIDRI
+</small>
+
+</span>
+
+</a>
+
+
+<nav class="nav-links">
+
+<a href="#home">
+Home
+</a>
+
+<a href="#menu">
+Menu
+</a>
+
+<a href="#about">
+About
+</a>
+
+<a href="#contact">
+Contact
+</a>
+
+</nav>
+
+
+<div class="actions">
+
+<a
+  class="btn btn-primary"
+  href="https://wa.me/917619198743"
+  target="_blank"
+  rel="noopener"
+>
+Order Now
+</a>
+
+
+<button
+  class="cart-button"
+  id="openCart"
+  aria-label="Open cart"
+>
+🛒
+
+<span
+  class="count"
+  id="count"
+>
+0
+</span>
+
+</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- MAIN -->
+
+<main>
+
+
+<!-- HERO -->
+
+<section
+  class="hero"
+  id="home"
+>
+
+<div class="container hero-grid">
+
+
+<div>
+
+<span class="badge">
+OPEN DAILY · 4 PM – 4 AM
+</span>
+
+
+<h1>
+
+Late Night
+
+<br>
+
+<span>
+Cravings
+</span>
+
+</h1>
+
+
+<div class="meta">
+04:04 CLOUD KITCHEN · MOODBIDRI
+</div>
+
+
+<p>
+
+Fresh burgers, wraps, momos, fries,
+starters, rice, noodles, braosted chicken
+and refreshing mojitos — made for your
+evening and late-night cravings.
+
+</p>
+
+
+<div class="hero-actions">
+
+<a
+  class="btn btn-primary"
+  href="#menu"
+>
+View Menu
+</a>
+
+
+<a
+  class="btn btn-outline"
+  href="https://wa.me/917619198743"
+  target="_blank"
+  rel="noopener"
+>
+WhatsApp Order
+</a>
+
+</div>
+
+</div>
+
+
+<!-- LOGO IN PLACE OF BURGER -->
+
+<div
+  class="orb"
+  aria-label="04:04 Cloud Kitchen logo"
+>
+
+<svg
+  class="orb-logo"
+  viewBox="0 0 400 400"
+>
+
+<use href="#brandLogo"></use>
+
+</svg>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MENU -->
+
+<section
+  class="section-alt"
+  id="menu"
+>
+
+<div class="container">
+
+
+<div class="section-head">
+
+<h2>
+
+Our
+
+<span class="gold">
+Menu
+</span>
+
+</h2>
+
+<p>
+Freshly prepared. Packed with flavour.
+</p>
+
+</div>
+
+
+<div class="menu-tools">
+
+<input
+  class="search"
+  id="search"
+  type="search"
+  placeholder="Search food..."
+  aria-label="Search menu"
+>
+
+
+<div
+  class="tabs"
+  id="tabs"
+></div>
+
+</div>
+
+
+<div
+  class="menu-grid"
+  id="menuGrid"
+></div>
+
+
+<div
+  id="empty"
+  style="
+    display:none;
+    color:var(--muted);
+    text-align:center;
+    padding:40px
+  "
+>
+No items found.
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container info-grid">
+
+
+<div class="info-card">
+
+<div class="section-head">
+
+<h2>
+
+About
+
+<span class="gold">
+04:04
+</span>
+
+</h2>
+
+</div>
+
+
+<p>
+
+04:04 Cloud Kitchen is a Moodbidri-based
+late-night food destination serving comfort
+food until 4 AM.
+
+</p>
+
+
+<div class="chips">
+
+<span class="chip">
+🍔 Burgers
+</span>
+
+<span class="chip">
+🌯 Wraps
+</span>
+
+<span class="chip">
+🥟 Momos
+</span>
+
+<span class="chip">
+🍟 Fries
+</span>
+
+<span class="chip">
+🍜 Rice & Noodles
+</span>
+
+<span class="chip">
+🍹 Mojitos
+</span>
+
+</div>
+
+</div>
+
+
+<div class="info-card">
+
+<div class="section-head">
+
+<h2>
+
+Why
+
+<span class="gold">
+04:04?
+</span>
+
+</h2>
+
+</div>
+
+
+<p>
+
+Because cravings do not follow a clock.
+Whether it is an evening snack or a
+late-night hunger attack, we are here.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- DELIVERY -->
+
+<section class="section-alt">
+
+<div class="container">
+
+<div class="delivery">
+
+<h2>
+
+Your cravings.
+
+<br>
+
+<span class="gold">
+Our delivery.
+</span>
+
+</h2>
+
+
+<p>
+
+Delivery is free within 2 km.
+Beyond 2 km, delivery is charged
+at ₹8 per km.
+
+</p>
+
+
+<div class="rule">
+
+<span>
+Up to
+<strong>
+2 km FREE
+</strong>
+</span>
+
+<span>
+•
+</span>
+
+<span>
+Above 2 km
+<strong>
+₹8 / km
+</strong>
+</span>
+
+</div>
+
+
+<div class="phone-label">
+CALL / WHATSAPP
+</div>
+
+
+<a
+  class="phone"
+  href="tel:+917619198743"
+>
++91 7619198743
+</a>
+
+
+<a
+  class="btn btn-primary"
+  href="#menu"
+>
+Order Now
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-head">
+
+<h2>
+
+Find
+
+<span class="gold">
+Us
+</span>
+
+</h2>
+
+<p>
+Moodbidri, Karnataka
+</p>
+
+</div>
+
+
+<div class="contact-grid">
+
+
+<div class="contact-card">
+
+<strong>
+Hours
+</strong>
+
+<p>
+Daily · 4:00 PM – 4:00 AM
+</p>
+
+</div>
+
+
+<div class="contact-card">
+
+<strong>
+Order
+</strong>
+
+<p>
+
+<a href="tel:+917619198743">
++91 7619198743
+</a>
+
+· WhatsApp available
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container footer-grid">
+
+
+<div>
+
+<h4>
+04:04 Cloud Kitchen
+</h4>
+
+<p>
+
+Moodbidri, Karnataka
+
+<br>
+
+Open daily:
+4 PM – 4 AM
+
+<br><br>
+
+<a href="tel:+917619198743">
++91 7619198743
+</a>
+
+</p>
+
+</div>
+
+
+<div>
+
+<h4>
+Quick Links
+</h4>
+
+<a href="#home">
+Home
+</a>
+
+<a href="#menu">
+Menu
+</a>
+
+<a href="#about">
+About
+</a>
+
+<a href="#contact">
+Contact
+</a>
+
+</div>
+
+
+<div>
+
+<h4>
+Follow
+</h4>
+
+
+<div class="socials">
+
+<a
+  class="social"
+  href="https://www.instagram.com/"
+  target="_blank"
+  rel="noopener"
+>
+IG
+</a>
+
+
+<a
+  class="social"
+  href="https://wa.me/917619198743"
+  target="_blank"
+  rel="noopener"
+>
+WA
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div
+  class="container"
+  style="
+    margin-top:34px;
+    font-size:.8rem
+  "
+>
+
+© 2026 04:04 Cloud Kitchen,
+Moodbidri. All rights reserved.
+
+</div>
+
+</footer>
+
+
+<!-- MOBILE CART BAR -->
+
+<div
+  class="cartbar"
+  id="cartBar"
+>
+
+<span id="barCount">
+0 items
+</span>
+
+<span>
+
+View Cart ·
+
+<span id="barTotal">
+₹0
+</span>
+
+</span>
+
+</div>
+
+
+<!-- OVERLAY -->
+
+<div
+  class="overlay"
+  id="overlay"
+></div>
+
+
+<!-- CART DRAWER -->
+
+<aside
+  class="drawer"
+  id="drawer"
+  aria-hidden="true"
+>
+
+
+<div class="drawer-head">
+
+<h3 id="drawerTitle">
+Your Cart
+</h3>
+
+
+<button
+  class="close"
+  id="closeCart"
+  aria-label="Close cart"
+>
+✕
+</button>
+
+</div>
+
+
+<!-- CART -->
+
+<div
+  class="drawer-body"
+  id="cartView"
+>
+
+<div id="cartItems">
+</div>
+
+</div>
+
+
+<!-- CHECKOUT -->
+
+<div
+  class="drawer-body form hidden"
+  id="formView"
+>
+
+
+<label>
+Name *
+</label>
+
+<input
+  class="field"
+  id="name"
+  autocomplete="name"
+>
+
+
+<label>
+Phone number *
+</label>
+
+<input
+  class="field"
+  id="phone"
+  type="tel"
+  inputmode="tel"
+  autocomplete="tel"
+>
+
+
+<label>
+Delivery address *
+</label>
+
+<textarea
+  id="address"
+  rows="3"
+  autocomplete="street-address"
+></textarea>
+
+
+<label>
+Flat / Door No.
+</label>
+
+<input
+  class="field"
+  id="flat"
+>
+
+
+<label>
+Landmark
+</label>
+
+<input
+  class="field"
+  id="landmark"
+>
+
+
+<button
+  class="btn btn-outline location-btn"
+  type="button"
+  id="location"
+>
+Use current location
+</button>
+
+
+<div
+  class="note"
+  id="locationNote"
+  style="
+    color:var(--muted);
+    font-size:.75rem;
+    margin-top:8px
+  "
+></div>
+
+
+<div
+  class="distance-box"
+  id="distanceBox"
+>
+
+Delivery:
+
+<span class="charge">
+Calculated from your delivery location
+</span>
+
+</div>
+
+
+<label>
+Order notes
+</label>
+
+<textarea
+  id="notes"
+  rows="3"
+  placeholder="Less spicy, extra sauce..."
+></textarea>
+
+
+<div
+  class="error"
+  id="error"
+></div>
+
+
+<button
+  class="btn btn-primary"
+  type="button"
+  id="send"
+  style="
+    width:100%;
+    margin-top:8px
+  "
+>
+Send Order on WhatsApp
+</button>
+
+
+<button
+  class="btn btn-outline"
+  type="button"
+  id="back"
+  style="
+    width:100%;
+    margin-top:8px
+  "
+>
+← Back to Cart
+</button>
+
+</div>
+
+
+<!-- CART FOOTER -->
+
+<div
+  class="drawer-footer"
+  id="footer"
+>
+
+
+<div class="summary">
+
+<span>
+Subtotal
+</span>
+
+<span id="subtotal">
+₹0
+</span>
+
+</div>
+
+
+<div class="summary">
+
+<span>
+Delivery
+</span>
+
+<span id="deliveryFee">
+Calculated on location
+</span>
+
+</div>
+
+
+<div class="summary total">
+
+<span>
+Total
+</span>
+
+<span id="total">
+₹0 + delivery
+</span>
+
+</div>
+
+
+<div
+  style="
+    color:var(--muted);
+    font-size:.74rem;
+    margin:8px 0 13px
+  "
+>
+
+0–2 km is FREE.
+Above 2 km:
+₹8 per additional km.
+Delivery is confirmed
+from the shared location.
+
+</div>
+
+
+<button
+  class="btn btn-primary"
+  id="checkout"
+  style="
+    width:100%
+  "
+>
+Continue
+</button>
+
+</div>
+
+</aside>
+
+
+<script>
+
+/* SETTINGS */
+
+const PHONE =
+  '917619198743';
+
+const FREE_KM =
+  2;
+
+const RATE =
+  8;
+
+
+/* MENU */
+
+const MENU = [
+
+
+{
+  c:'Fries',
+
+  d:
+    'Golden, crisp and made to order.',
+
+  i:[
+
+    [
+      'Salted Fries',
+      80,
+      'Classic golden fries with a clean, comforting crunch.'
+    ],
+
+    [
+      'Peri Peri Fries',
+      110,
+      'Crispy fries tossed in a bold peri peri kick.'
+    ],
+
+    [
+      'Cheesy Fries',
+      140,
+      'Hot golden fries finished with rich, cheesy goodness.'
+    ],
+
+    [
+      'Loaded Fries',
+      180,
+      'A loaded fries treat made for serious late-night cravings.'
+    ]
+
+  ]
+},
+
+
+{
+  c:'Momos',
+
+  d:
+    'Steamed, juicy and packed with flavour.',
+
+  i:[
+
+    [
+      'Veg Momo',
+      90,
+      'Soft, juicy veg-filled momos for a light and tasty bite.'
+    ],
+
+    [
+      'Veg Peri Momo',
+      100,
+      'Veg momos with an extra peri peri punch in every bite.'
+    ],
+
+    [
+      'Chicken Momo',
+      110,
+      'Juicy chicken-filled momos with a satisfying savoury bite.'
+    ],
+
+    [
+      'Chicken Peri Momo',
+      120,
+      'Tender chicken momos with a spicy peri peri twist.'
+    ],
+
+    [
+      'Schezwan Momo',
+      130,
+      'Juicy momos coated with a lively Schezwan-style heat.'
+    ],
+
+    [
+      'Dynamite Momo',
+      150,
+      'Bold, creamy-spicy momos with a dynamite finish.'
+    ]
+
+  ]
+},
+
+
+{
+  c:'Rice / Noodles',
+
+  d:
+    'Wok-tossed and full of flavour.',
+
+  i:[
+
+    [
+      'Classic Noodles',
+      130,
+      'Wok-tossed noodles with a simple, satisfying flavour.'
+    ],
+
+    [
+      'Classic Rice',
+      130,
+      'Comforting fried rice with classic wok-tossed flavour.'
+    ],
+
+    [
+      'Schezwan Noodles',
+      140,
+      'Spicy Schezwan noodles with a smoky, fiery edge.'
+    ],
+
+    [
+      'Schezwan Rice',
+      140,
+      'A spicy wok of Schezwan rice made for bold cravings.'
+    ],
+
+    [
+      'Manchurian Noodles',
+      140,
+      'Slurpy noodles paired with a savoury Manchurian touch.'
+    ],
+
+    [
+      'Manchurian Rice',
+      140,
+      'Fragrant fried rice with a rich Manchurian-style finish.'
+    ],
+
+    [
+      'Dragon Noodles',
+      150,
+      'Bold dragon-style noodles with a punchy flavour profile.'
+    ],
+
+    [
+      'Dragon Rice',
+      150,
+      'Wok-fired rice with a bold dragon-style kick.'
+    ],
+
+    [
+      'Garlic Noodles',
+      170,
+      'Aromatic garlic noodles with a deep, savoury finish.'
+    ],
+
+    [
+      'Garlic Rice',
+      170,
+      'Fragrant garlic rice packed with warm, savoury flavour.'
+    ]
+
+  ]
+},
+
+
+{
+  c:'Starters',
+
+  d:
+    'Crispy, hot and made to share.',
+
+  i:[
+
+    [
+      'Chicken Nuggets',
+      90,
+      'Golden chicken nuggets with a crisp outside and tender bite.'
+    ],
+
+    [
+      'Chickpop',
+      150,
+      'Crunchy chicken bites built for easy snacking and sharing.'
+    ],
+
+    [
+      'Crispy Chicken Strips',
+      180,
+      'Tender chicken strips wrapped in a delicious crispy coating.'
+    ],
+
+    [
+      'Crispy Chicken Wings',
+      170,
+      'Crispy wings with a juicy centre and satisfying crunch.'
+    ]
+
+  ]
+},
+
+
+{
+  c:'Burgers',
+
+  d:
+    'Stacked, saucy and loaded.',
+
+  i:[
+
+    [
+      'Veg Cheesy Burger',
+      90,
+      'A juicy veg burger layered with creamy cheesy goodness.'
+    ],
+
+    [
+      'Chicken Burger',
+      130,
+      'A classic chicken burger for a satisfying, hearty bite.'
+    ],
+
+    [
+      'Zinger Burger',
+      140,
+      'Crispy chicken stacked into a bold, crave-worthy burger.'
+    ],
+
+    [
+      'Fiery Zinger Burger',
+      180,
+      'A zinger burger turned up with a fiery spicy finish.'
+    ],
+
+    [
+      'Double Zinger Burger',
+      210,
+      'Double the zinger, double the crunch, double the craving.'
+    ],
+
+    [
+      'No Bun Burger',
+      200,
+      'A bold no-bun take for those who want the filling to shine.'
+    ]
+
+  ]
+},
+
+
+{
+  c:'Wraps',
+
+  d:
+    'Rolled tight and packed with crunch.',
+
+  i:[
+
+    [
+      'Zinger Wrap',
+      150,
+      'Crispy zinger wrapped up for a delicious on-the-go bite.'
+    ],
+
+    [
+      'Spicy Zinger Wrap',
+      170,
+      'Zinger crunch rolled with an extra spicy kick.'
+    ],
+
+    [
+      'Cheesy Zinger Wrap',
+      180,
+      'Crispy zinger and cheesy richness wrapped together.'
+    ],
+
+    [
+      'Tikka Wrap',
+      170,
+      'Tender tikka flavours rolled into a satisfying handheld wrap.'
+    ]
+
+  ]
+},
+
+
+{
+  c:'Braosted',
+
+  d:
+    'Braosted chicken, your portion.',
+
+  i:[
+
+    [
+      'Single PC',
+      80,
+      'One juicy braosted chicken piece for a quick craving fix.'
+    ],
+
+    [
+      'Half (4 PC)',
+      300,
+      'Four braosted chicken pieces made for a filling meal.'
+    ],
+
+    [
+      'Full',
+      580,
+      'A full braosted chicken feast for sharing or serious hunger.'
+    ]
+
+  ]
+},
+
+
+{
+  c:'Mojito',
+
+  d:
+    'Cool, fizzy and refreshing.',
+
+  i:[
+
+    [
+      'Lime Sparkler',
+      50,
+      'Bright lime refreshment with a crisp, fizzy finish.'
+    ],
+
+    [
+      'Watermelon',
+      50,
+      'A cool watermelon sip for a fresh fruity break.'
+    ],
+
+    [
+      'Blue Wave',
+      50,
+      'A vibrant, refreshing cooler made for easy sipping.'
+    ],
+
+    [
+      'Passion Fizz',
+      70,
+      'Passion-fruit inspired fizz with a lively tropical feel.'
+    ],
+
+    [
+      'Purple Zing',
+      60,
+      'A refreshing purple cooler with a fun fruity zing.'
+    ]
+
+  ]
+}
+
+];
+
+
+const items = [];
+
+MENU.forEach(
+  group => {
+
+    group.i.forEach(
+      item => {
+
+        items.push({
+
+          id:
+            group.c +
+            '|' +
+            item[0],
+
+          name:
+            item[0],
+
+          price:
+            item[1],
+
+          cat:
+            group.c,
+
+          desc:
+            item[2] ||
+            group.d
+
+        });
+
+      }
+    );
+
+  }
+);
+
+
+/* STATE */
+
+let cart = {};
+
+let currentCategory =
+  'All';
+
+let mapLink =
+  '';
+
+
+/* HELPERS */
+
+const $ =
+  id =>
+    document.getElementById(id);
+
+
+const esc =
+  s =>
+    String(s).replace(
+      /[&<>"']/g,
+      c =>
+        ({
+          '&':'&amp;',
+          '<':'&lt;',
+          '>':'&gt;',
+          '"':'&quot;',
+          "'":'&#39;'
+        }[c])
+    );
+
+
+function countCart(){
+
+  return Object
+    .values(cart)
+    .reduce(
+      (a,b) =>
+        a+b,
+      0
+    );
+
+}
+
+
+function subtotal(){
+
+  return Object.keys(cart)
+    .reduce(
+      (sum,id) => {
+
+        const item =
+          items.find(
+            x =>
+              x.id === id
+          );
+
+        return (
+          sum +
+          item.price *
+          cart[id]
+        );
+
+      },
+      0
+    );
+
+}
+
+
+/* MENU CONTROLS */
+
+function controls(it){
+
+  const q =
+    cart[it.id] || 0;
+
+
+  if(q){
+
+    return `
+
+      <div class="qty">
+
+        <button
+          type="button"
+          data-minus="${esc(it.id)}"
+        >
+          −
+        </button>
+
+        <span>
+          ${q}
+        </span>
+
+        <button
+          type="button"
+          data-plus="${esc(it.id)}"
+        >
+          +
+        </button>
+
+      </div>
+
+    `;
+
+  }
+
+
+  return `
+
+    <button
+      type="button"
+      class="add"
+      data-plus="${esc(it.id)}"
+    >
+      Add to Cart
+    </button>
+
+  `;
+
+}
+
+
+/* TABS */
+
+function renderTabs(){
+
+  const box =
+    $('tabs');
+
+  box.innerHTML =
+    '';
+
+  [
+    'All',
+    ...MENU.map(
+      g =>
+        g.c
+    )
+  ].forEach(
+
+    c => {
+
+      const b =
+        document.createElement(
+          'button'
+        );
+
+      b.className =
+        'tab' +
+        (
+          c ===
+          currentCategory
+            ? ' active'
+            : ''
+        );
+
+      b.textContent =
+        c;
+
+      b.onclick =
+        () => {
+
+          currentCategory =
+            c;
+
+          renderTabs();
+          renderMenu();
+
+        };
+
+      box.appendChild(b);
+
+    }
+
+  );
+
+}
+
+
+/* MENU */
+
+function renderMenu(){
+
+  const q =
+    $('search')
+      .value
+      .trim()
+      .toLowerCase();
+
+
+  const list =
+    items.filter(
+
+      it =>
+
+        (
+          currentCategory ===
+          'All' ||
+
+          it.cat ===
+          currentCategory
+        )
+
+        &&
+
+        (
+          !q ||
+
+          (
+            it.name +
+            ' ' +
+            it.cat
+          )
+            .toLowerCase()
+            .includes(q)
+        )
+
+    );
+
+
+  $('menuGrid').innerHTML =
+
+    list.map(
+
+      it => `
+
+        <article
+          class="menu-card"
+        >
+
+          <div>
+
+            <div class="menu-cat">
+              ${esc(it.cat)}
+            </div>
+
+            <h3>
+              ${esc(it.name)}
+            </h3>
+
+            <p class="desc">
+              ${esc(it.desc)}
+            </p>
+
+          </div>
+
+          <div class="price-row">
+
+            <span class="price">
+              ₹${it.price}
+            </span>
+
+            ${controls(it)}
+
+          </div>
+
+        </article>
+
+      `
+
+    ).join('');
+
+
+  $('empty').style.display =
+    list.length
+      ? 'none'
+      : 'block';
+
+}
+
+
+/* CART */
+
+function renderCart(){
+
+  const ids =
+    Object.keys(cart);
+
+
+  $('cartItems').innerHTML =
+
+    ids.length
+
+      ?
+
+      ids.map(
+
+        id => {
+
+          const it =
+            items.find(
+              x =>
+                x.id === id
+            );
+
+
+          return `
+
+            <div class="cart-item">
+
+              <div class="item-info">
+
+                <strong>
+                  ${esc(it.name)}
+                </strong>
+
+                <small>
+                  ₹${it.price} each
+                </small>
+
+              </div>
+
+              ${controls(it)}
+
+              <span class="line-total">
+                ₹${it.price * cart[id]}
+              </span>
+
+            </div>
+
+          `;
+
+        }
+
+      ).join('')
+
+      :
+
+      `
+
+        <p
+          style="
+            color:var(--muted);
+            text-align:center;
+            padding:38px 0
+          "
+        >
+
+          Your cart is empty.
+
+          <br>
+
+          Add something delicious.
+
+        </p>
+
+      `;
+
+
+  updateSummary();
+
+}
+
+
+/* SUMMARY */
+
+function updateSummary(){
+
+  const n =
+    countCart();
+
+  const s =
+    subtotal();
+
+
+  $('count').textContent =
+    n;
+
+
+  $('barCount').textContent =
+
+    n +
+    (
+      n === 1
+        ? ' item'
+        : ' items'
+    );
+
+
+  $('barTotal').textContent =
+    '₹' +
+    s +
+    ' + delivery';
+
+
+  $('cartBar').classList.toggle(
+    'show',
+    n > 0
+  );
+
+
+  $('subtotal').textContent =
+    '₹' +
+    s;
+
+
+  $('deliveryFee').textContent =
+    'Calculated on location';
+
+
+  $('total').textContent =
+    '₹' +
+    s +
+    ' + delivery';
+
+
+  $('checkout').disabled =
+    !n;
+
+
+  $('checkout').style.opacity =
+    n
+      ? 1
+      : .5;
+
+
+  $('distanceBox').innerHTML =
+
+    `
+
+      Delivery:
+
+      <span class="charge">
+        Calculated from your delivery location
+      </span>
+
+    `;
+
+}
+
+
+/* CHANGE CART */
+
+function change(
+  id,
+  delta
+){
+
+  cart[id] =
+    (
+      cart[id] || 0
+    ) +
+    delta;
+
+
+  if(
+    cart[id] <= 0
+  ){
+
+    delete cart[id];
+
+  }
+
+
+  renderMenu();
+  renderCart();
+
+}
+
+
+document.addEventListener(
+  'click',
+  event => {
+
+    const plus =
+      event.target.closest(
+        '[data-plus]'
+      );
+
+    const minus =
+      event.target.closest(
+        '[data-minus]'
+      );
+
+
+    if(plus){
+
+      change(
+        plus.dataset.plus,
+        1
+      );
+
+    }
+
+
+    if(minus){
+
+      change(
+        minus.dataset.minus,
+        -1
+      );
+
+    }
+
+  }
+);
+
+
+/* SEARCH */
+
+$('search')
+  .addEventListener(
+    'input',
+    renderMenu
+  );
+
+
+/* DRAWER */
+
+function openDrawer(){
+
+  $('drawer')
+    .classList
+    .add('show');
+
+
+  $('overlay')
+    .classList
+    .add('show');
+
+
+  $('drawer')
+    .setAttribute(
+      'aria-hidden',
+      'false'
+    );
+
+
+  showCart();
+
+}
+
+
+function closeDrawer(){
+
+  $('drawer')
+    .classList
+    .remove('show');
+
+
+  $('overlay')
+    .classList
+    .remove('show');
+
+
+  $('drawer')
+    .setAttribute(
+      'aria-hidden',
+      'true'
+    );
+
+}
+
+
+function showCart(){
+
+  $('cartView')
+    .classList
+    .remove('hidden');
+
+
+  $('formView')
+    .classList
+    .add('hidden');
+
+
+  $('footer')
+    .classList
+    .remove('hidden');
+
+
+  $('drawerTitle')
+    .textContent =
+      'Your Cart';
+
+}
+
+
+function showForm(){
+
+  $('cartView')
+    .classList
+    .add('hidden');
+
+
+  $('formView')
+    .classList
+    .remove('hidden');
+
+
+  $('footer')
+    .classList
+    .add('hidden');
+
+
+  $('drawerTitle')
+    .textContent =
+      'Delivery Details';
+
+}
+
+
+$('openCart').onclick =
+  openDrawer;
+
+
+$('cartBar').onclick =
+  openDrawer;
+
+
+$('closeCart').onclick =
+  closeDrawer;
+
+
+$('overlay').onclick =
+  closeDrawer;
+
+
+$('checkout').onclick =
+  () =>
+    countCart()
+      ? showForm()
+      : null;
+
+
+$('back').onclick =
+  showCart;
+
+
+document.addEventListener(
+  'keydown',
+  e => {
+
+    if(
+      e.key ===
+      'Escape'
+    ){
+
+      closeDrawer();
+
+    }
+
+  }
+);
+
+
+/* LOCATION */
+
+$('location').onclick =
+  () => {
+
+    if(
+      !navigator.geolocation
+    ){
+
+      $('locationNote').textContent =
+        'Location is not supported on this device.';
+
+      return;
+
+    }
+
+
+    $('locationNote').textContent =
+      'Getting current location…';
+
+
+    navigator.geolocation.getCurrentPosition(
+
+      pos => {
+
+        mapLink =
+          `https://maps.google.com/?q=${
+            pos.coords.latitude
+          },${
+            pos.coords.longitude
+          }`;
+
+
+        $('locationNote').textContent =
+          'Current location added ✓. Delivery charge will be confirmed based on your delivery location.';
+
+      },
+
+      () => {
+
+        $('locationNote').textContent =
+          'Could not get current location. Please enter your address manually.';
+
+      },
+
+      {
+        enableHighAccuracy:
+          true,
+
+        timeout:
+          10000
+
+      }
+
+    );
+
+  };
+
+
+/* WHATSAPP */
+
+$('send').onclick =
+  () => {
+
+    const name =
+      $('name')
+        .value
+        .trim();
+
+
+    const phone =
+      $('phone')
+        .value
+        .trim();
+
+
+    const address =
+      $('address')
+        .value
+        .trim();
+
+
+    const err =
+      $('error');
+
+
+    if(
+      !name ||
+      !address ||
+      phone
+        .replace(
+          /\D/g,
+          ''
+        )
+        .length < 10
+    ){
+
+      err.textContent =
+        'Please enter your name, a valid phone number and delivery address.';
+
+      return;
+
+    }
+
+
+    err.textContent =
+      '';
+
+
+    const flat =
+      $('flat')
+        .value
+        .trim();
+
+
+    const land =
+      $('landmark')
+        .value
+        .trim();
+
+
+    const notes =
+      $('notes')
+        .value
+        .trim();
+
+
+    const sub =
+      subtotal();
+
+
+    let msg =
+      '*New Order – 04:04 Cloud Kitchen*\n\n';
+
+
+    msg +=
+      `*Name:* ${name}\n`;
+
+
+    msg +=
+      `*Phone:* ${phone}\n`;
+
+
+    msg +=
+      `*Address:* ${
+        flat
+          ? 'Flat/Door ' +
+            flat +
+            ', '
+          : ''
+      }${address}\n`;
+
+
+    msg +=
+      `*Landmark:* ${
+        land || '-'
+      }\n`;
+
+
+    msg +=
+      '*Delivery:* Calculated based on location\n';
+
+
+    if(mapLink){
+
+      msg +=
+        `*Location:* ${mapLink}\n`;
+
+    }
+
+
+    msg +=
+      '\n*Items:*\n';
+
+
+    Object.keys(cart)
+      .forEach(
+
+        id => {
+
+          const it =
+            items.find(
+              x =>
+                x.id === id
+            );
+
+
+          msg +=
+
+            `• ${
+              it.name
+            } x${
+              cart[id]
+            } = ₹${
+              it.price *
+              cart[id]
+            }\n`;
+
+        }
+
+      );
+
+
+    msg +=
+      `\n*Subtotal:* ₹${sub}\n`;
+
+
+    msg +=
+      '*Delivery policy:* 0–2 km FREE; above 2 km ₹8 per additional km\n';
+
+
+    msg +=
+      '*Delivery charge:* To be confirmed based on delivery location\n';
+
+
+    msg +=
+      `*Total:* ₹${sub} + delivery`;
+
+
+    if(notes){
+
+      msg +=
+        `\n\n*Notes:* ${notes}`;
+
+    }
+
+
+    window.open(
+
+      `https://wa.me/${
+        PHONE
+      }?text=${
+        encodeURIComponent(msg)
+      }`,
+
+      '_blank'
+
+    );
+
+  };
+
+
+/* INITIALIZE */
+
+renderTabs();
+
+renderMenu();
+
+renderCart();
+
+
+window.addEventListener(
+  'load',
+  () => {
+
+    setTimeout(
+      () =>
+        $('loader')
+          .classList
+          .add('hide'),
+
+      450
+    );
+
+  }
+);
+
+
+setTimeout(
+  () =>
+    $('loader')
+      .classList
+      .add('hide'),
+
+  2500
+);
+
+</script>
+
+</body>
+</html>
